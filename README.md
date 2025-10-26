@@ -1,18 +1,53 @@
-# warehouse-automation-sheets
-Low-code automation for warehouse operations (Google Sheets + Apps Script)
-**Low Stock Monitor (`apps-script/LowStockMonitor.gs`)**
-Watches all inventory sheets and auto-updates a "Low Stock Display" tab when any item’s stock drops below threshold.
+## Low-Code Automation for Warehouse Operations
+**Google Sheets + Apps Script Portfolio Suite**
+
+This repository demonstrates a modular automation system built for inventory and workflow management using Google Apps Script. Each script represents a functional component from a real-world warehouse system—optimized for low-stock tracking, reporting, and QR-based product management.
+
+---
+
+### Included Scripts
+
+#### LowStockMonitor.gs
+Watches all inventory sheets and auto-updates a “Low Stock Display” tab when any item’s stock drops below threshold.
 - Adds or updates items under 150 units.
 - Removes items once restocked.
 - Ignores Archive and QR Generator sheets.
 - Prevents recursive triggers and hidden-row edits.
+Demonstrates event-driven automation and inventory monitoring logic.
 
-This script demonstrates inventory monitoring, sheet logic, and event-driven automation in Google Apps Script.
+---
 
-- **autoTimestamp.gs** — Automatically logs timestamps when stock levels are updated or cleared. Demonstrates edit-based automation and column mapping logic.
+#### autoTimestamp.gs
+Automatically logs timestamps when stock levels are updated or cleared.
+Demonstrates edit-based automation and column mapping logic.
 
-add: advanced low-stock email alert (HTML + links)
+---
 
-- **qrGenerator.gs** — Builds a “QR Generator” sheet with IN/OUT QR codes per SKU and box quantity using Google Chart IMAGE() formulas.
+#### emailAlert.gs
+Sends a formatted HTML email summary of low-stock items, including clickable product links and category details.
+Demonstrates data aggregation, conditional formatting, and HTML-based communication automation.
 
-- **lowStockTracker.gs** — Tracks newly low and recovered SKUs in a dedicated sheet; returns new lows for alerting. Demonstrates state management across runs.
+---
+
+#### qrGenerator.gs
+Builds a “QR Generator” sheet that creates IN/OUT QR codes per SKU and box quantity using Google Chart IMAGE() formulas.
+Demonstrates integration with external APIs and batch data processing.
+
+---
+
+#### lowStockTracker.gs
+Tracks newly low and recovered SKUs in a dedicated sheet and returns new lows for alerting.
+Demonstrates persistent state tracking across script executions.
+
+---
+
+### Tech Used
+- Google Apps Script (JavaScript-based)
+- Google Sheets API
+- MailApp (email automation)
+- Google Chart API (QR generation)
+
+---
+
+### Summary
+This project demonstrates how low-code scripting can transform manual warehouse tasks into automated workflows—increasing efficiency, data accuracy, and visibility across departments.
