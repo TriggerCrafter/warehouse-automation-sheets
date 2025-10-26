@@ -54,7 +54,7 @@ This project demonstrates how low-code scripting can transform manual warehouse 
 
 ## 🧩 Live Google Sheets Demo
 You can view and test the working automation demo here:  
-[👉 Open the Live Sheet](https://docs.google.com/spreadsheets/d/1HRHeu6oak5yTB2g5CMZHrP2e9SnhTUuJPyjdA4ECR3c/edit?usp=sharing)
+[👉 Open the Live Sheet]([https://docs.google.com/spreadsheets/d/1HRHeu6oak5yTB2g5CMZHrP2e9SnhTUuJPyjdA4ECR3c/edit?usp=sharing](https://docs.google.com/spreadsheets/d/1QynRZrxogKwNCfDZ5f82QQpSQ2FQrX8Nkg9Mx5jDoVU/edit?usp=sharing))
 
 This sheet demonstrates:
 - Real-time stock tracking
