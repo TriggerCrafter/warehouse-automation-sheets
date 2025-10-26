@@ -12,3 +12,5 @@ This script demonstrates inventory monitoring, sheet logic, and event-driven aut
 - **autoTimestamp.gs** — Automatically logs timestamps when stock levels are updated or cleared. Demonstrates edit-based automation and column mapping logic.
 
 add: advanced low-stock email alert (HTML + links)
+
+- **qrGenerator.gs** — Builds a “QR Generator” sheet with IN/OUT QR codes per SKU and box quantity using Google Chart IMAGE() formulas.
