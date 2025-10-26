@@ -10,3 +10,5 @@ Watches all inventory sheets and auto-updates a "Low Stock Display" tab when any
 This script demonstrates inventory monitoring, sheet logic, and event-driven automation in Google Apps Script.
 
 - **autoTimestamp.gs** — Automatically logs timestamps when stock levels are updated or cleared. Demonstrates edit-based automation and column mapping logic.
+
+add: advanced low-stock email alert (HTML + links)
