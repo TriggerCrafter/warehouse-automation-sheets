@@ -1,0 +1,73 @@
+/**
+ * emailAlert.gs
+ * ----------------
+ * Daily low-stock HTML summary email.
+ * Checks all inventory category sheets, builds a formatted list of items below threshold,
+ * and sends an HTML email with clickable product links.
+ *
+ * Portfolio-safe version (no company data).
+ */
+
+function sendLowStockAlert() {
+  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  const lowStockThreshold = 150;
+  const recipient = "demo@example.com"; // Replace with your email if testing
+  const subject = "📦 Low Stock Alert – Items Below Threshold";
+
+  const categoryMap = {
+    FX: "Flex Band",
+    GR: "Grooved Band",
+    MG: "Magnetic Band",
+    FL: "Fit Leather",
+    FT: "Fit Band",
+    CL: "Classic Band",
+    AC: "Active Band",
+    RD: "Ridged Band",
+    UN: "Unknown Type",
+  };
+
+  // List of category sheets to scan (example names)
+  const sheetsToCheck = [
+    "Category A",
+    "Category B",
+    "Category C",
+    "Category D"
+  ];
+
+  let messageBody = "<b>The following products are low on stock (under threshold):</b><br><br>";
+  let foundLowStock = false;
+
+  sheetsToCheck.forEach(sheetName => {
+    const sheet = ss.getSheetByName(sheetName);
+    if (!sheet) return;
+
+    const lastRow = sheet.getLastRow();
+    for (let row = 3; row <= lastRow; row++) {
+      if (sheet.isRowHiddenByFilter(row) || sheet.isRowHiddenByUser(row)) continue;
+
+      const size = sheet.getRange(row, 1).getValue();
+      const color = sheet.getRange(row, 2).getValue();
+      const quantity = Number(sheet.getRange(row, 3).getValue());
+      const richText = sheet.getRange(row, 9).getRichTextValue();  // URL column
+      const url = richText ? richText.getLinkUrl() : "";
+      const sku = sheet.getRange(row, 13).getValue();
+
+      if (!size || !color || isNaN(quantity) || quantity >= lowStockThreshold) continue;
+
+      const key = sku && sku.includes('-') ? sku.split('-')[0] : "UN";
+      const category = categoryMap[key] || "Unknown";
+
+      messageBody += `• <b>${sheetName}</b> – ${category} – ${color} – ${size} – <b>${quantity}</b> units `;
+      messageBody += url ? ` – <a href="${url}">View Item</a><br>` : `<br>`;
+      foundLowStock = true;
+    }
+  });
+
+  if (foundLowStock) {
+    MailApp.sendEmail({
+      to: recipient,
+      subject: subject,
+      htmlBody: messageBody,
+    });
+  }
+}
