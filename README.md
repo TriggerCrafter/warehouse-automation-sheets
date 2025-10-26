@@ -14,3 +14,5 @@ This script demonstrates inventory monitoring, sheet logic, and event-driven aut
 add: advanced low-stock email alert (HTML + links)
 
 - **qrGenerator.gs** — Builds a “QR Generator” sheet with IN/OUT QR codes per SKU and box quantity using Google Chart IMAGE() formulas.
+
+- **lowStockTracker.gs** — Tracks newly low and recovered SKUs in a dedicated sheet; returns new lows for alerting. Demonstrates state management across runs.
