@@ -51,3 +51,14 @@ Demonstrates persistent state tracking across script executions.
 
 ### Summary
 This project demonstrates how low-code scripting can transform manual warehouse tasks into automated workflows—increasing efficiency, data accuracy, and visibility across departments.
+
+## 🧩 Live Google Sheets Demo
+You can view and test the working automation demo here:  
+[👉 Open the Live Sheet](https://docs.google.com/spreadsheets/d/1HRHeu6oak5yTB2g5CMZHrP2e9SnhTUuJPyjdA4ECR3c/edit?usp=sharing)
+
+This sheet demonstrates:
+- Real-time stock tracking
+- Barcode scan simulation
+- Low stock highlighting
+- Automated “Low Stock Display” tab updates
+
